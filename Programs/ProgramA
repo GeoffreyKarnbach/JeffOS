@@ -1,0 +1,4 @@
+0 | READ A,0
+1 | READ B,1
+2 | ADD A,B
+3 | WRITE 2,A

@@ -1,0 +1,17 @@
+ADD regA , regB => Adds Register regA and regB together, saves the result into Register regA
+MINUS regA , regB => Removes Register regA from Register regB, saves the result into Register regA
+MULTIPLY regA , regB => Multipies Register regA and Register regB, saves the result into Register regA
+
+JUMP nb => Jump to instruction nb
+JUMPZ nb => Jump to instruction nb IF Z Flag
+JUMPN nb => Jump to instruction nb IF N Flag
+
+LOAD regA , ramAddress => Load value into Register regA from ramAddress from RAM
+STORE ramAddress , regA => Store value from Register regA into ramAddress into RAM
+
+READ regA , romAddress => Reads value into Register regA from romAddress from ROM
+WRITE romAddress , regA => Write value from Register regA into romAddress into ROM
+
+INIT sem , val => Initialize the Semaphore sem with the value val
+SEMWAIT sem => Decreases the Semaphore sem by one, and blocks process if < 0
+SEMPOST sem => Increase the Semaphore sem by one, and unblock one process
