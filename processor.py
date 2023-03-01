@@ -33,6 +33,27 @@ class Processor:
         self.negativeBit = False
         self.zeroBit = False
 
+    def exportRegisters(self):
+        return [self.registerA,
+                self.registerB,
+                self.registerC,
+                self.registerD,
+                self.registerE,
+                self.registerF,
+                self.registerG,
+                self.registerH]
+
+    def importRegisters(self, registers):
+        self.registerA = registers[0]
+        self.registerB = registers[1]
+        self.registerC = registers[2]
+        self.registerD = registers[3]
+        self.registerE = registers[4]
+        self.registerF = registers[5]
+        self.registerG = registers[6]
+        self.registerH = registers[7]
+
+    
     def setFlags(self, register = None):
         if register is not None:
             self.negativeBit = register < 0

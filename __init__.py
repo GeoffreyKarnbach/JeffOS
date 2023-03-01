@@ -7,7 +7,7 @@ from rom import*
 ram = RAM()
 rom = ROM()
 
-rom.setPosition(0, 10)
+rom.setPosition(0, 49)
 rom.setPosition(1, 1)
 
 processor = Processor(ram, rom)

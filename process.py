@@ -10,9 +10,8 @@ class Process:
 
         self.currentLine = 0
         self.code = self.fetch_program_code(codefile)
-
-        print(self.code)
-        
+        self.registers = [0] * 8
+  
     def fetch_program_code(self, codefile):
         with open(codefile, "r") as f:
             content = f.read()
@@ -35,16 +34,22 @@ class Process:
         return commands
     
     def toBlockedQueue(self):
-        pass
+        self.registers = self.processor.exportRegisters()
 
     def toReadyQueue(self):
-        pass
+        self.registers = self.processor.exportRegisters()
+
+    def setupProcessor(self):
+        self.processor.importRegisters(self.registers)
 
     def setLine(self, lineNB):
         self.currentLine = lineNB
-    
+
     def nextLine(self):
         self.currentLine += 1
+    
+    def hasNextOP(self):
+        return self.currentLine < len(self.code)
 
     def runNextOP(self):
         currentOPs = self.code[self.currentLine]
